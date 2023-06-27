@@ -1,6 +1,6 @@
-streamlit==1.23.1
-pandas==2.0.2
-pandas-profiling==3.2.0
-numpy==1.23.5
-matplotlib==3.7.1
-ydata-profiling==4.3.1
+streamlit
+pandas
+pandas-profiling
+numpy
+matplotlib
+ydata-profiling
