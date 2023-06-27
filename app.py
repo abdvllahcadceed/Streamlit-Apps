@@ -4,7 +4,7 @@ import pandas as pd
 import os
 
 # Importing Pandas Modules
-import pandas_profiling
+import ydata-profiling
 from streamlit_pandas_profiling import st_profile_report
 
 
