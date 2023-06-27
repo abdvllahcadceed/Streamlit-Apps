@@ -6,14 +6,13 @@ from streamlit_pandas_profiling import st_profile_report
 
 # Web App Title
 st.image("https://www.onepointltd.com/wp-content/uploads/2019/12/ONE-POINT-01-1.png")
-st.title("Automation of Exploratory Data Analysis")
 
 st.markdown('''
-# **Automated of Exploratory Data Analysis**
+# **Automated Exploratory Data Analysis**
 
-This is the **EDA App** created in Streamlit using the **Pandas-Profiling** library.
+This is the **EDA Application** created in Streamlit using the **Pandas-Profiling** library.
 
-** App built in `Python` + `Streamlit` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
+Application built in `Python` + `Streamlit` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 
 ---
 ''')
