@@ -1,23 +1,5 @@
 # Importing Libraries
-import streamlit as st
-
-st.session_state['answer'] = ''!
-
-st.write(st.session_state)
-
-realans = ['', 'abc', 'edf']
-
-if  st.session_state['answer'] in realans:
-    answerStat = "correct"
-elif st.session_state['answer'] not in realans:
-    answerStat = "incorrect"
-
-st.write(st.session_state)
-st.write(answerStat)
-{
-    "answer": ""
-}
-    
+import streamlit as st    
 import pandas as pd
 import os
 
@@ -38,7 +20,7 @@ with st.sidebar:
       file = st.file_uploader("Upload Your Dataset Here")
       if file:
         df = pd.read_csv(file, index_col=None)
-        df.to_csv(" .csv", index=None)
+        df.to_csv("sourcedata.csv", index=None)
         st.dataframe(df)
         
     
