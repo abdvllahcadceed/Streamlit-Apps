@@ -51,5 +51,5 @@ else:
         st.header('**The Example Dataset**')
         st.write(df)
         st.write('---')
-        st.header('**EDA Report**')
+        st.header('**The Example EDA Report**')
         st_profile_report(pr)
