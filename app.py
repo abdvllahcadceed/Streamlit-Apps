@@ -13,7 +13,8 @@ with st.sidebar:
     st.title("Automation of Exploratory Data Analysis")
     choice = st.radio("Navigation", ["Upload", "Profiling - EDA"])
     st.info("This Application Allows You to Build an Automated EDA Pipeline using Streamlit and Pandas Profiling")
-
+if os.path.exists("sourcedata.csv"):
+    df = pd.read_csv("sourcedata.csv", index_col=None)
 
     if choice == "Upload":
       st.title("Upload Your Data for EDA!")
