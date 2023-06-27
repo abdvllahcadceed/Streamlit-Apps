@@ -10,7 +10,7 @@ st.markdown('''
 # **Automated Exploratory Data Analysis**
 
 
-Application built in `Python` + `Streamlit` + 'GitHub' by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
+Application built in `Python` + `Streamlit` + `GitHub` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 
 ---
 ''')
