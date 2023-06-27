@@ -4,3 +4,4 @@ pandas-profiling
 numpy
 matplotlib
 ydata-profiling
+streamlit_pandas_profiling
