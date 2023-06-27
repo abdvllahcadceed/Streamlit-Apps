@@ -33,7 +33,7 @@ if uploaded_file is not None:
     st.header('**Your Dataset**')
     st.write(df)
     st.write('---')
-    st.header('**Exploratory Data Analysis**')
+    st.header('**Exploratory Data Analysis Report**')
     st_profile_report(pr)
 else:
     st.info('Awaiting your data to be uploaded!')
