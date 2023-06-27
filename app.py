@@ -9,9 +9,8 @@ from streamlit_pandas_profiling import st_profile_report
 st.markdown('''
 # **Automated Exploratory Data Analysis**
 
-This is the **EDA Application** created in **Streamlit** using the **Pandas-Profiling** library.
 
-Application built in `Python` + `Streamlit` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
+Application built in `Python` + `Streamlit` + 'GitHub' by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 
 ---
 ''')
@@ -20,7 +19,7 @@ Application built in `Python` + `Streamlit` by [Abdullahi M. Cadceed](https://tw
 with st.sidebar.header('Upload'):
     uploaded_file = st.sidebar.file_uploader("Upload your dataset in CSV file", type=["csv"])
     st.sidebar.markdown("""
-[Example of CSV Input File](https://https://raw.githubusercontent.com/abdvllahcadceed/pyProjects/main/unhcr-idp.csv)
+[Example of CSV Dataset](https://https://raw.githubusercontent.com/abdvllahcadceed/pyProjects/main/unhcr-idp.csv)
 """)
 
 # Pandas Profiling Report
