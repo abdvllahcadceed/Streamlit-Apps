@@ -36,7 +36,7 @@ if uploaded_file is not None:
     st.header('**The Exploratory Data Analysis Report**')
     st_profile_report(pr)
 else:
-    st.info('Awaiting your data to be uploaded!')
+    st.info('Awaiting your dataset to be uploaded!')
     if st.button('Press to use the Example Dataset'):
         # Example data
         @st.cache
