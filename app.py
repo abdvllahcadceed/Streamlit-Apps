@@ -19,7 +19,7 @@ Application built in `Python` + `Streamlit` + `GitHub` by [Abdullahi M. Cadceed]
 with st.sidebar.header('Upload'):
     uploaded_file = st.sidebar.file_uploader("Upload your dataset in CSV file", type=["csv"])
     st.sidebar.markdown("""
-[Example of CSV Dataset](https://https://raw.githubusercontent.com/abdvllahcadceed/pyProjects/main/unhcr-idp.csv)
+[Example of CSV Dataset](https://raw.githubusercontent.com/abdvllahcadceed/pyProjects/main/unhcr-idp.csv)
 """)
 
 # Pandas Profiling Report
