@@ -5,12 +5,11 @@ from pandas_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 
 # Web App Title
-st.image("https://www.onepointltd.com/wp-content/uploads/2019/12/ONE-POINT-01-1.png")
 
 st.markdown('''
 # **Automated Exploratory Data Analysis**
 
-This is the **EDA Application** created in Streamlit using the **Pandas-Profiling** library.
+This is the **EDA Application** created in **Streamlit** using the **Pandas-Profiling** library.
 
 Application built in `Python` + `Streamlit` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 
@@ -19,9 +18,9 @@ Application built in `Python` + `Streamlit` by [Abdullahi M. Cadceed](https://tw
 
 # Upload CSV data
 with st.sidebar.header('Upload'):
-    uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+    uploaded_file = st.sidebar.file_uploader("Upload your dataset in CSV file", type=["csv"])
     st.sidebar.markdown("""
-[Example CSV input file](https://https://raw.githubusercontent.com/abdvllahcadceed/pyProjects/main/unhcr-idp.csv)
+[Example of CSV Input File](https://https://raw.githubusercontent.com/abdvllahcadceed/pyProjects/main/unhcr-idp.csv)
 """)
 
 # Pandas Profiling Report
