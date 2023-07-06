@@ -4,9 +4,7 @@ import streamlit as st
 import pandas as pd
 
 st.markdown('''
-# **Stock Price App**
-### 2010 - 2022
-
+# **Stock Price App - ##### 2010 - 2022**
 
 Application built in `Python` + `Streamlit` + `GitHub` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 
