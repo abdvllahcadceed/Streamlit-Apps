@@ -5,3 +5,4 @@ pandas-profiling
 streamlit-pandas-profiling
 Jinja2
 yfinance
+altair
