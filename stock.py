@@ -8,7 +8,7 @@ st.markdown('''
 Application built in `Python` + `Streamlit` + `GitHub` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 
 
-Shown are the stock **closing price** and ***volume*** of Google!
+Shown are the stock **Closing Price** and ***Volume*** of Google!
 
 ---
 ''')
