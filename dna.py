@@ -58,10 +58,10 @@ X
 
 # Print Text
 st.subheader('2. The Text')
-st.write('There are ' + str(X['A']) + 'Adenine (A)')
-st.write('There are ' + str(X['T']) + 'Thymine (T)')
-st.write('There are ' + str(X['G']) + 'Guanine (G)')
-st.write('There are ' + str(X['C']) + 'Cytosine (C)')
+st.write('There are ' + str(X['A']) + ' Adenine (A)')
+st.write('There are ' + str(X['T']) + ' Thymine (T)')
+st.write('There are ' + str(X['G']) + ' Guanine (G)')
+st.write('There are ' + str(X['C']) + ' Cytosine (C)')
 
 # Display DataFrame
 st.subheader('3. The DataFrame')
