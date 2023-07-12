@@ -2,8 +2,12 @@
 import pandas as pd
 import streamlit as st
 import altair as alt
+from PIL import Image
 
 # Page Title
+image = Image.open('dna-logo.jpg')
+
+st.image(image, use_column_width=True)
 st.write("""
 # DNA Nucleotide Count Web App
 
@@ -65,6 +69,7 @@ df = pd.DataFrame.from_dict(X, orient='index')
 df = df.rename({0: 'count'}, axis='columns')
 df.reset_index(inplace=True)
 df = df.rename(columns = {'index':'nucleotide'})
+st.write(df)
 
 # Display Bar Chart
 st.subheader('4. The Visualization')
@@ -75,7 +80,6 @@ y = 'count'
 
 p = p.properties(
 	width=alt.Step(60)
-
 	)
 st.write(p)
 
