@@ -22,7 +22,7 @@ This App counts the nucleotide composition of your DNA Sequence
 st.header('DNA Sequence')
 
 sequence_input = ""
-sequence = st.text_area("Enter Here Your DNA Sequence in (CAPITAL LETTERS) & Press Ctrl+Enter to Apply", sequence_input, height=250)
+sequence = st.text_area("Enter Here Your DNA Sequence in (CAPITAL LETTERS) & Press ***Ctrl+Enter*** to Apply", sequence_input, height=250)
 sequence = sequence.splitlines()
 sequence = ''.join(sequence)
 
