@@ -74,13 +74,13 @@ st.write(df)
 # Display Bar Chart
 st.subheader('4. The Visualization')
 p = alt.Chart(df).mark_bar().encode(
-x = 'nucleotide',
-y = 'count'
-	)
+	x = 'nucleotide',
+	y = 'count'
+)
 
 p = p.properties(
 	width=alt.Step(60)
-	)
+)
 st.write(p)
 
 
