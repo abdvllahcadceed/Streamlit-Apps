@@ -46,8 +46,8 @@ def DNA_Nucleotide_Count(seq):
 
 X = DNA_Nucleotide_Count(sequence)
 
-X.label = list(X)
-X.values = list(X.values())
+#X.label = list(X)
+#X.values = list(X.values())
 
 X
 
