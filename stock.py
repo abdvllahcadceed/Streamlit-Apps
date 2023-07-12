@@ -5,8 +5,10 @@ import pandas as pd
 
 st.markdown('''
 # **Stock Price App**
-
 Application built in `Python` + `Streamlit` + `GitHub` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
+
+
+Shown are the stock **closing price** and ***volume*** of Google!
 
 ---
 ''')
