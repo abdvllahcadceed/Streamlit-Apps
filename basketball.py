@@ -71,7 +71,7 @@ if st.button('Click Here to See the Heatmap Visualization'):
 		except:
 			df = df.drop(column, axis=1)
 	
-	corr = df.corr()
+    corr = df.corr()
     mask = np.zeros_like(corr)
     mask[np.triu_indices_from(mask)] = True
     with sns.axes_style("white"):
