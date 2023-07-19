@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+image = Image.open('dna-logo.jpeg')
 
+st.image(image, use_column_width=True)
 st.title('US NBA Player Stats Explorer')
 
 st.markdown("""
