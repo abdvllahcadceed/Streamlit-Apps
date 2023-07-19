@@ -64,7 +64,7 @@ if st.button('Click Here to See the Heatmap Visualization'):
 	df_selected_team.to_csv('output.csv', index=False)
 	df = pd.read_csv('output.csv')
 
-corr = df.corr()
+	corr = df.corr()
 	mask = np.zeros_like(corr)
 	mask[np.triu_indices_from(mask)] = True
 	with sns.axes_style("white"):
