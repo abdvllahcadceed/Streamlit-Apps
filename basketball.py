@@ -66,9 +66,9 @@ if st.button('Click Here to See the Heatmap Visualization'):
 	
 	for column in df.columns:
 		try:
-                df[column] = df[column].astype(float)
+			df[column] = df[column].astype(float)
 		except:
-                df = df.drop(column, axis=1)
+			df = df.drop(column, axis=1)
 	
 	corr = df.corr()
 	mask = np.zero_like(corr)
