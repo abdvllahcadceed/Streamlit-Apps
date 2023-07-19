@@ -6,6 +6,7 @@ import seaborn as sns
 import numpy as np
 from PIL import Image
 
+
 image = Image.open('nba-logo.jpg')
 st.image(image, use_column_width=True)
 
