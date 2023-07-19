@@ -31,7 +31,8 @@ def load_data(year):
     raw = raw.fillna(0)
     playerstats = raw.drop(['Rk'], axis=1)
     return playerstats
-	#playerstats = load_data(selected_year)
+
+playerstats = load_data(selected_year)
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(playerstats.Tm.unique())
@@ -53,14 +54,14 @@ st.dataframe(df_selected_team)
 def filedownload(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
-    href = f'<a href="data:file/csv;base64,{b64}" download="playerstats.csv">Download CSV File</a>'
+    href = f'<a href="data:file/csv;base64,{b64}" download="playerstats.csv">Click to Download the CSV File</a>'
     return href
 
 st.markdown(filedownload(df_selected_team), unsafe_allow_html=True)
 
 # Heatmap
-if st.button('Intercorrelation Heatmap'):
-    st.header('Intercorrelation Matrix Heatmap')
+if st.button('Click to See the Heatmap Visualization'):
+    st.header('The Heatmap')
     df_selected_team.to_csv('output.csv',index=False)
     df = pd.read_csv('output.csv')
 
@@ -71,41 +72,3 @@ if st.button('Intercorrelation Heatmap'):
         f, ax = plt.subplots(figsize=(7, 5))
         ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
     st.pyplot()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
