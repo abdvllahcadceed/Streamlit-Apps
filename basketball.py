@@ -6,9 +6,9 @@ import seaborn as sns
 import numpy as np
 
 # Page Title
-image = Image.open('nba-logo.jpg')
+#image = Image.open('nba-logo.jpg')
 
-st.image(image, use_column_width=True)
+#st.image(image, use_column_width=True)
 
 st.title('US NBA Player Stats Explorer')
 
