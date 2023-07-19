@@ -4,8 +4,9 @@ import base64
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+from PIL import Image
 
-image = image.open('nba-logo.jpg')
+image = Image.open('nba-logo.jpg')
 st.image(image, use_column_width=True)
 
 st.title('US NBA Player Stats Explorer')
