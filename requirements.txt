@@ -8,4 +8,4 @@ yfinance
 altair
 Pillow
 seaborn
-base64
+pybase64
