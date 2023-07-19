@@ -9,3 +9,4 @@ altair
 Pillow
 seaborn
 pybase64
+scipy
