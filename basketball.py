@@ -4,6 +4,7 @@ import base64
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import re
 from PIL import Image
 
 
@@ -28,6 +29,7 @@ def load_data(year):
 	html = pd.read_html(url, header = 0)
 	df = html[0]
 	df = df.replace(r'^\s*$', np.nan, regex=True)
+	df = df.drop("Player", axis=0). 
 	raw = df.drop(df[df.Age == 'Age'].index) # Deletes repeating header in content
 	raw = raw.fillna(0)
 	playerstats = raw.drop(['Rk'], axis=1)
