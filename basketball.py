@@ -65,9 +65,9 @@ if st.button('Click Here to See the Heatmap Visualization'):
 	df = pd.read_csv('output.csv')
 	
 	for column in df.columns:
-	    try:
+		try:
                 df[column] = df[column].astype(float)
-            except:
+		except:
                 df = df.drop(column, axis=1)
 	
 	corr = df.corr()
