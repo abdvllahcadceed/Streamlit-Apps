@@ -8,5 +8,4 @@ scikit-learn
 scipy
 seaborn
 streamlit
-warnings
 yfinance
