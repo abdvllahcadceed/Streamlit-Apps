@@ -21,60 +21,59 @@ st.markdown("""
 st.sidebar.header('User Input Features')
 seleceted_year = st.sidebar.selectbox('Year', list(reversed(range(1950,2023))))
 
-# Web scraping of NBA player stats
+# Web Scraping of NBA Player Stats
 @st.cache_data
 def load_data(year):
-    url = "https://www.basketball-reference.com/leagues/NBA_" + str(year) + "_per_game.html"
-    html = pd.read_html(url, header = 0)
-    df = html[0]
-    raw = df.drop(df[df.Age == 'Age'].index) # Deletes repeating headers in content
-    raw = raw.fillna(0)
-    playerstats = raw.drop(['Rk'], axis=1)
-    return playerstats
+	url = "https://www.basketball-reference.com/leagues/NBA_" + str(year) + "_per_game.html"
+	html = pd.read_html(url, header = 0)
+	df = html[0]
+	raw = df.drop(df[df.Age == 'Age'].index) # Deletes repeating header in content
+	raw = raw.fillna(0)
+	playerstats = raw.drop(['Rk'], axis=1)
+	return playerstats
+playerstats = load_data(seleceted_year)
 
-playerstats = load_data(selected_year)
-
-# Sidebar - Team selection
+# Sidebar - Team Selection
 sorted_unique_team = sorted(playerstats.Tm.unique())
 selected_team = st.sidebar.multiselect('Team', sorted_unique_team, sorted_unique_team)
 
-# Sidebar - Position selection
-unique_pos = ['C','PF','SF','PG','SG']
+# Sidebar - Position Selection
+unique_pos = ['C', 'PF', 'SF', 'PG', 'SG']
 selected_pos = st.sidebar.multiselect('Position', unique_pos, unique_pos)
 
-# Filtering data
+# Filtering Data
 df_selected_team = playerstats[(playerstats.Tm.isin(selected_team)) & (playerstats.Pos.isin(selected_pos))]
 
-st.header('Display Player Stats of Selected Team(s)')
-st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns.')
+st.header('Display Player Stats of the Selected Team(s)')
+st.write('Data Dimensions: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns')
 st.dataframe(df_selected_team)
 
-# Download NBA player stats data
+# Download NBA Player Stats Data
 # https://discuss.streamlit.io/t/how-to-download-file-in-streamlit/1806
 def filedownload(df):
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
-    href = f'<a href="data:file/csv;base64,{b64}" download="playerstats.csv">Click to Download the CSV File</a>'
-    return href
+	csv = df.to_csv(index=False)
+	b64 = base64.b64encode(csv.encode()).decode() # strings <> bytes conversion
+	href = f'<a href="data:file/csv,base64,{b64}" download="playerstats.csv">Click Here to Download CSV File</a>'
+	return href
 
 st.markdown(filedownload(df_selected_team), unsafe_allow_html=True)
 
-# Heatmap
-if st.button('Click to See the Heatmap Visualization'):
-    st.header('The Heatmap')
-    df_selected_team.to_csv('output.csv',index=False)
-    df = pd.read_csv('output.csv')
-
-    for column in df.columns:
-        try:
-            df[column] = df[column].astype(float)
-        except:
-            df = df.drop(column, axis=1)
-		
-    corr = df.corr()
-    mask = np.zeros_like(corr)
-    mask[np.triu_indices_from(mask)] = True
-    with sns.axes_style("white"):
-        f, ax = plt.subplots(figsize=(7, 5))
-        ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
-    st.pyplot()
+# Heatmap Visualization
+if st.button('Click Here to See the Heatmap Visualization'):
+	st.header('The Heatmap')
+	df_selected_team.to_csv('output.csv', index=False)
+	df = pd.read_csv('output.csv')
+	
+	for column in df.columns:
+	    try:
+                df[column] = df[column].astype(float)
+            except:
+                df = df.drop(column, axis=1)
+	
+	corr = df.corr()
+	mask = np.zero_like(corr)
+	mask[np.triu_indicies_form(mask)] = True
+	with sns.axes_style("white"):
+		f, ax = plt.subplots(figsize=(6, 6))
+		ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
+	st.pyplot()
