@@ -65,6 +65,12 @@ if st.button('Click to See the Heatmap Visualization'):
     df_selected_team.to_csv('output.csv',index=False)
     df = pd.read_csv('output.csv')
 
+    for column in df.columns:
+        try:
+            df[column] = df[column].astype(float)
+        except:
+            df = df.drop(column, axis=1)
+		
     corr = df.corr()
     mask = np.zeros_like(corr)
     mask[np.triu_indices_from(mask)] = True
