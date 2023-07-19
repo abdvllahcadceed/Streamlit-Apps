@@ -29,7 +29,7 @@ def load_data(year):
 	html = pd.read_html(url, header = 0)
 	df = html[0]
 	df = df.replace(r'^\s*$', np.nan, regex=True)
-	df = df.drop("Player", axis=0). 
+	df = df.drop("Player", axis=0)
 	raw = df.drop(df[df.Age == 'Age'].index) # Deletes repeating header in content
 	raw = raw.fillna(0)
 	playerstats = raw.drop(['Rk'], axis=1)
