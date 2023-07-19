@@ -61,8 +61,9 @@ st.markdown(filedownload(df_selected_team), unsafe_allow_html=True)
 # Heatmap Visualization
 if st.button('Click Here to See the Heatmap Visualization'):
 	st.header('The Heatmap')
-	df_selected_team.to_csv('output.csv', index=False)
-	df = pd.read_csv('output.csv')
+	#df_selected_team.to_csv('output.csv', index=False)
+	#df = pd.read_csv('output.csv')
+	df = df_selected_team.copy()
 	
 	for column in df.columns:
 		try:
