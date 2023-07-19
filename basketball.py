@@ -71,10 +71,10 @@ if st.button('Click Here to See the Heatmap Visualization'):
 		except:
 			df = df.drop(column, axis=1)
 	
-    corr = df.corr()
+    	corr = df.corr()
 	mask = np.zeros_like(corr)
 	mask[np.triu_indices_from(mask)] = True
-    with sns.axes_style("white"):
+    	with sns.axes_style("white"):
         fig, ax = plt.subplots(figsize=(7, 5))
         ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
-    st.pyplot(fig)
+    	st.pyplot(fig)
