@@ -66,7 +66,7 @@ if st.button('Click Here to See the Heatmap Visualization'):
 
 	corr = df.corr()
 	mask = np.zero_like(corr)
-	mask[np.trui_indicies_form(mask)] = True
+	mask[np.triu_indicies_form(mask)] = True
 	with sns.axes_style("white"):
 		f, ax = plt.subplots(figsize=(6, 6))
 		ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
