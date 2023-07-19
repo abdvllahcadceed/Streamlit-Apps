@@ -4,7 +4,6 @@ import base64
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-import scipy as sc
 from PIL import Image
 
 
@@ -65,12 +64,12 @@ if st.button('Click Here to See the Heatmap Visualization'):
 	df_selected_team.to_csv('output.csv', index=False)
 	df = pd.read_csv('output.csv')
 
-	corr = df.corr()
-	mask = np.zeros_like(corr)
+	corri = df.corr()
+	mask = np.zeros_like(corri)
 	mask[np.triu_indices_from(mask)] = True
 	with sns.axes_style("white"):
 		f, ax = plt.subplots(figsize=(7, 5))
-		ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
+		ax = sns.heatmap(corri, mask=mask, vmax=1, square=True)
 	
 	st.pyplot()
 
