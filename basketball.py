@@ -28,8 +28,6 @@ def load_data(year):
 	url = "https://www.basketball-reference.com/leagues/NBA_" + str(year) + "_per_game.html"
 	html = pd.read_html(url, header = 0)
 	df = html[0]
-	df = df.replace(r'^\s*$', np.nan, regex=True)
-	df = df.drop("Player", axis=0)
 	raw = df.drop(df[df.Age == 'Age'].index) # Deletes repeating header in content
 	raw = raw.fillna(0)
 	playerstats = raw.drop(['Rk'], axis=1)
@@ -67,6 +65,7 @@ if st.button('Click Here to See the Heatmap Visualization'):
 	df_selected_team.to_csv('output.csv', index=False)
 	df = pd.read_csv('output.csv')
 
+	df = df.drop("Player", axis=0). 
 	corr = df.corr()
 	mask = np.zeros_like(corr)
 	mask[np.triu_indices_from(mask)] = True
