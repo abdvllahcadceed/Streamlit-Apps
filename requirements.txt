@@ -7,3 +7,5 @@ Jinja2
 yfinance
 altair
 Pillow
+seaborn
+base64
