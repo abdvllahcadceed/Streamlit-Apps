@@ -8,3 +8,5 @@ pandas-profiling
 streamlit_pandas_profiling
 altair
 Pillow
+google_trans_new
+google_translator
