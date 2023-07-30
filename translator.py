@@ -10,5 +10,5 @@ Application built in `Python` + `Streamlit` + `GitHub` by [Abdullahi M. Cadceed]
 """)
 
 text = st.text_input("Type Your Text Here & Press ENTER!")
-translate = translator.translate(text,lang_tgt='so')
+translate = translator.translate(text,lang_tgt='de')
 st.write(translate)
