@@ -5,7 +5,7 @@ translator = google_translator()
 
 st.title("Simple Somali to English Web App Translator")
 
-st.markdow("""
+st.write("""
 Application built in `Python` + `Streamlit` + `GitHub` by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 """)
 
