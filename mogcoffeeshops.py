@@ -14,7 +14,7 @@ Application built by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed
 df = pd.read_csv('mogCoffeeShops.csv')
 
 # Filter out any missing or irrelevant data
-df = df[['Name', 'Location', 'Cuisine', 'Rating']].dropna()
+df = df[['Name', 'Location', 'Cuisine', 'Rating', 'Price_Range']].dropna()
 
 # Create a map of the city
 m = folium.Map(location=[2.0469, 45.3181], zoom_start=12)
