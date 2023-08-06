@@ -8,3 +8,4 @@ pandas-profiling
 streamlit_pandas_profiling
 altair
 Pillow
+folium
