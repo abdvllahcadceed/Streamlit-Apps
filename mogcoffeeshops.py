@@ -4,14 +4,14 @@ import folium
 
 
 # App title
-st.set_page_config(page_title="☕️🌟 Mogadishu Coffee Shops")
-st.title('☕️🌟 Mogadishu Coffee Shops')
+st.set_page_config(page_title="☕️🌟 Mogadishu Coffee Shops Viz")
+st.title('☕️🌟 Mogadishu Coffee Shops Visualization')
 
 st.markdown('''
 Application built by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 ''')
 
-# Coffee shops data for demonstration
+# Coffee shops data
 coffeeShops = pd.DataFrame({
     'Name': ['Beydan', 'Kaizen', 'Castello', 'Salool', 'Java'],
     'Latitude': [2.033, 2.037, 2.030, 2.036, 2.032],
@@ -35,15 +35,13 @@ def create_map(data):
 
 # Main Streamlit app
 def main():
-    st.title('Mogadishu Coffee Shops Visualization')
-    st.header('Coffe Shops Locations')
 
-    # Display the restaurant data in a table
+    # Display the coffee shops data in a table
     st.subheader('Coffee Shops Data')
     st.dataframe(coffeeShops)
 
     # Filter by cuisine type
-    cuisine_type = st.selectbox('Filter by Cuisine', ['All'] + coffeeShops['Cuisine'].unique())
+    cuisine_type = st.selectbox('Filter by Cuisine', coffeeShops['Cuisine'].unique())
     if cuisine_type != 'All':
         filtered_data = coffeeShops[coffeeShops['Cuisine'] == cuisine_type]
     else:
