@@ -13,11 +13,11 @@ Application built by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed
 
 # Coffee shops data
 coffeeShops = pd.DataFrame({
-    'Name': ['Beydan', 'Kaizen', 'Castello', 'Salool', 'Java'],
-    'Latitude': [2.033, 2.037, 2.030, 2.036, 2.032],
-    'Longitude': [45.313, 45.302, 45.303, 45.305, 45.315],
-    'Cuisine': ['Shaah', 'Cunno', 'Cabitaan', 'Daango', 'Qaaci'],
-    'Rating': [4.50, 4.70, 4.40, 4.30, 4.80]
+    Name = ['Beydan', 'Kaizen', 'Castello', 'Salool', 'Java'],
+    Latitude = [2.033, 2.037, 2.030, 2.036, 2.032],
+    Longitude = [45.313, 45.302, 45.303, 45.305, 45.315],
+    Cuisine = ['Shaah', 'Cunno', 'Cabitaan', 'Daango', 'Qaaci'],
+    Rating = [4.50, 4.70, 4.40, 4.30, 4.80]
 })
 
 # Function to create an interactive map
@@ -26,8 +26,8 @@ def create_map(data):
 
     for index, row in data.iterrows():
         folium.Marker(
-            location=[row['Latitude'], row['Longitude']],
-            popup=f"{row['Name']} ({row['Cuisine']}) - Rating: {row['Rating']}",
+            location=[row[Latitude], row[Longitude]],
+            popup=f"{row[Name]} ({row[Cuisine]}) - Rating: {row[Rating]}",
             icon=folium.Icon(color='blue')
         ).add_to(city_map)
 
