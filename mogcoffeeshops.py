@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import folium
 
-
 # App title
 st.set_page_config(page_title="☕️🌟 Mogadishu Coffee Shops Viz")
 st.title('☕️🌟 Mogadishu Coffee Shops Visualization')
@@ -11,54 +10,58 @@ st.markdown('''
 Application built by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
 ''')
 
-# Coffee shops data
-coffeeShops = pd.DataFrame({
-    Name = ['Beydan', 'Kaizen', 'Castello', 'Salool', 'Java'],
-    Latitude = [2.033, 2.037, 2.030, 2.036, 2.032],
-    Longitude = [45.313, 45.302, 45.303, 45.305, 45.315],
-    Cuisine = ['Shaah', 'Cunno', 'Cabitaan', 'Daango', 'Qaaci'],
-    Rating = [4.50, 4.70, 4.40, 4.30, 4.80]
-})
+# Load the data
+df = pd.read_csv('mogCoffeeShops.csv')
 
-# Function to create an interactive map
-def create_map(data):
-    city_map = folium.Map(location=[data['Latitude'].mean(), data['Longitude'].mean()], zoom_start=14)
+# Filter out any missing or irrelevant data
+df = df[['Name', 'Location', 'Cuisine', 'Rating']].dropna()
 
-    for index, row in data.iterrows():
-        folium.Marker(
-            location=[row[Latitude], row[Longitude]],
-            popup=f"{row[Name]} ({row[Cuisine]}) - Rating: {row[Rating]}",
-            icon=folium.Icon(color='blue')
-        ).add_to(city_map)
+# Create a map of the city
+m = folium.Map(location=[2.0469, 45.3181], zoom_start=12)
 
-    return city_map
+# Add markers for each restaurant
+for index, row in df.iterrows():
+    marker = folium.Marker(
+        location=[row['Location'][0], row['Location'][1]],
+        popup=row['Name'],
+        icon=folium.Icon(color='red')
+    )
+    m.add_child(marker)
 
-# Main Streamlit app
-def main():
+# Display the map
+st.write("Coffee Shops in {}".format(df['Location'].mean()))
+st.write(m)
 
-    # Display the coffee shops data in a table
-    st.subheader('Coffee Shops Data')
-    st.dataframe(coffeeShops)
+# Interactive map
+st.write("Click on a marker to see more details about the Coffee Shop")
 
-    # Filter by cuisine type
-    cuisine_type = st.selectbox('Filter by Cuisine', coffeeShops['Cuisine'].unique())
-    if cuisine_type != 'All':
-        filtered_data = coffeeShops[coffeeShops['Cuisine'] == cuisine_type]
-    else:
-        filtered_data = coffeeShops
+@st.button("Filter by Cuisine")
+def filter_by_cuisine():
+    selected_cuisine = st.selectbox("Select a Cuisine", ["All", "Somali", "Ethiopian", "Kenyan", "Ugandan", "Rwandan"])
+    filtered_df = df[(df['Cuisine'] == selected_cuisine)]
+    m.clear_markers()
+    for index, row in filtered_df.iterrows():
+        marker = folium.Marker(
+            location=[row['Location'][0], row['Location'][1]],
+            popup=row['Name'],
+            icon=folium.Icon(color='red')
+        )
+        m.add_child(marker)
 
-    # Filter by minimum rating
-    min_rating = st.slider('Minimum Rating', 0.0, 5.0, 0.0, 0.1)
-    filtered_data = filtered_data[filtered_data['Rating'] >= min_rating]
-
-    # Display filtered data
-    st.subheader('Filtered Coffee Shops Data')
-    st.dataframe(filtered_data)
-
-    # Display the map
-    st.subheader('Coffee Shops Map')
-    coffee_map = create_map(filtered_data)
-    st.write(coffee_map)
+@st.button("Filter by Price Range")
+def filter_by_price_range():
+    min_price = st.number_input("Enter minimum price", 1, 100)
+    max_price = st.number_input("Enter maximum price", 1, 100)
+    filtered_df = df[(df['Price_Range'] >= min_price) & (df['Price_Range'] <= max_price)]
+    m.clear_markers()
+    for index, row in filtered_df.iterrows():
+        marker = folium.Marker(
+            location=[row['Location'][0], row['Location'][1]],
+            popup=row['Name'],
+            icon=folium.Icon(color='red')
+        )
+        m.add_child(marker)
 
 if __name__ == '__main__':
-    main()
+    st.write(m)
+    st.show()
