@@ -3,6 +3,13 @@ import pandas as pd
 import folium
 
 
+# App title
+st.set_page_config(page_title="☕️🌟 Mogadishu Coffee Shops")
+st.title('☕️🌟 Mogadishu Coffee Shops')
+
+st.markdown('''
+Application built by [Abdullahi M. Cadceed](https://twitter.com/@abdullahcadceed)
+''')
 
 # Coffee shops data for demonstration
 coffeeShops = pd.DataFrame({
