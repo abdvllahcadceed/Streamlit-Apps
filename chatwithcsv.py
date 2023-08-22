@@ -8,7 +8,7 @@ from pandasai import PandasAI
 load_dotenv()
 
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_api_key = os.getenv("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")
 
 
 def chat_with_csv(df,prompt):
