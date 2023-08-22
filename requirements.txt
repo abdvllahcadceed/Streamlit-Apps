@@ -10,3 +10,5 @@ altair
 Pillow
 folium
 plotly
+pandasai
+python-dotenv
