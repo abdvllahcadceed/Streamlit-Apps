@@ -13,3 +13,5 @@ plotly
 pandasai
 python-dotenv
 tabulate
+langchain
+openai
