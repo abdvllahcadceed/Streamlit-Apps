@@ -12,3 +12,4 @@ folium
 plotly
 pandasai
 python-dotenv
+tabulate
